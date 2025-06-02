@@ -1,2 +1,58 @@
-# BLE-Notification-Vibrator
-Android app that connects to ESP32 via BLE to trigger vibrations when notifications are received. Enables discrete haptic alerts for notifications through a compact vibrating ESP32 device with BLE capabilities.
+# [Project Title TBD] – Android Notification Vibration Controller
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Transform your ESP32 into a discreet vibration notifier!  
+This Android app connects to your ESP32 device via Bluetooth Low Energy (BLE) and triggers a vibration when you receive specific notifications.
+
+⚠️ **Note:** This project is a work in progress. Many features are still being developed, and things may break. Contributions, suggestions, or testing feedback are welcome!
+
+---
+
+## Features (So Far) ✨
+- BLE connection to ESP32 devices with BLE support
+- Auto-scanning and pairing based on predefined device name
+- Notification listener service *(currently limited to Facebook, Messenger, and WhatsApp)*
+- Manual vibration trigger button for testing
+- Connection status monitoring
+- Basic automatic reconnection support
+- Android 8.0+ (API 26+) compatibility
+
+---
+
+## Hardware Requirements 🛠️
+- ESP32 development board (with BLE)
+- Vibration motor module
+- Suitable power source for ESP32
+
+---
+
+## Setup Instructions ⚙️
+
+### ESP32 Setup
+A companion ESP32 firmware repository is **not yet published**. In the meantime, you can test using any sketch that handles BLE and vibrates a motor on command.
+
+### Android App Installation
+1. Download the latest APK from [Releases](https://github.com/yourusername/VibeLink-Android/releases)
+2. Enable **"Install from unknown sources"** in Android settings
+3. Install the APK
+4. Grant required permissions:
+   - Bluetooth
+   - Location (required for BLE scanning)
+   - Notification access
+
+---
+
+## Usage 📱
+1. Launch the app
+2. Make sure Bluetooth is turned on
+3. Power up your ESP32 device
+4. The app will:
+   - Scan for nearby devices
+   - Connect to your ESP32
+   - Display the connection status
+5. Press **"Send Vibration"** to test
+6. When a Facebook, Messenger, or WhatsApp notification arrives, your ESP32 will vibrate
+
+---  
+

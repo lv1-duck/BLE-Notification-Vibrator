@@ -32,7 +32,7 @@ This Android app connects to your ESP32 device via Bluetooth Low Energy (BLE) an
 A companion ESP32 firmware repository is **not yet published**. In the meantime, you can test using any sketch that handles BLE and vibrates a motor on command.
 
 ### Android App Installation
-1. Download the latest APK from [Releases](https://github.com/yourusername/VibeLink-Android/releases)
+1. Download the latest APK from [Releases](https://github.com/lv1-duck/BLE-Notification-Vibrator/main/releases)
 2. Enable **"Install from unknown sources"** in Android settings
 3. Install the APK
 4. Grant required permissions:

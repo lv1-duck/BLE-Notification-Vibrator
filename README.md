@@ -50,7 +50,7 @@ A companion ESP32 firmware repository is **not yet published**.
    - Scan for nearby devices
    - Connect to your ESP32
    - Display the connection status
-5. Press **"Send Vibration"** to test
+5. Press **"Send Command"** to test
 6. When a Facebook, Messenger, or WhatsApp notification arrives, your ESP32 will vibrate
 
 ---  

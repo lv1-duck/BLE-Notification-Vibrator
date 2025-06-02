@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Screen margins for larger screens -->
+    <dimen name="screen_horizontal_margin">24dp</dimen>
+    <dimen name="screen_vertical_margin">24dp</dimen>
+
+    <!-- Spacing values (unchanged) -->
+    <dimen name="spacing_small">12dp</dimen>
+    <dimen name="spacing_medium">24dp</dimen>
+    <dimen name="spacing_large">36dp</dimen>
+    <dimen name="spacing_xlarge">48dp</dimen>
+
+    <!-- Text sizes - DOUBLED from original -->
+    <dimen name="text_small">32sp</dimen>          <!-- Was 16sp -->
+    <dimen name="text_medium">24sp</dimen>         <!-- Was 18sp -->
+    <dimen name="text_large">30sp</dimen>          <!-- Was 22sp -->
+    <dimen name="text_xlarge">35sp</dimen>         <!-- Was 24sp -->
+    <dimen name="app_title_text_size">64sp</dimen> <!-- Was 32sp -->
+    <dimen name="button_text_size">36sp</dimen>    <!-- Was 18sp -->
+
+    <!-- Element dimensions (unchanged) -->
+    <dimen name="card_padding">20dp</dimen>
+    <dimen name="card_corner_radius">16dp</dimen>
+    <dimen name="button_padding">16dp</dimen>
+    <dimen name="button_spacing">16dp</dimen>
+    <dimen name="min_touch_target_size">64dp</dimen>
+</resources>

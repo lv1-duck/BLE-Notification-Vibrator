@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">untitled</string>
+    <string name="status_indicator">No Reminder Clip Connected</string>
+</resources>

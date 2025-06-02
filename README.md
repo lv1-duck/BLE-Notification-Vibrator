@@ -4,11 +4,11 @@
 
 This Android app connects to your ESP32 device via Bluetooth Low Energy (BLE) and triggers a vibration when you receive specific notifications.
 
-⚠️ **Note:** This project is a work in progress. Many features are still being developed, and things may break. Contributions, suggestions, or testing feedback are welcome!
+⚠️ **Note:** This project is a work in progress. Many features are still under development, and some may break. Contributions, suggestions, or testing feedback are welcome! Also, I've vibecoded like 70% of the project since I'm completely new to Kotlin.
 
 ---
 
-## Features (So Far) ✨
+## Features (So Far)
 - BLE connection to ESP32 devices with BLE support
 - Auto-scanning and pairing based on predefined device name
 - Notification listener service *(currently limited to Facebook, Messenger, and WhatsApp)*
@@ -19,14 +19,14 @@ This Android app connects to your ESP32 device via Bluetooth Low Energy (BLE) an
 
 ---
 
-## Hardware Requirements 🛠️
+## Hardware Requirements
 - ESP32 development board (with BLE)
 - Vibration motor module
 - Suitable power source for ESP32
 
 ---
 
-## Setup Instructions ⚙️
+## Setup Instructions
 
 ### ESP32 Setup
 A companion ESP32 firmware repository is **not yet published**. In the meantime, you can test using any sketch that handles BLE and vibrates a motor on command.
@@ -42,7 +42,7 @@ A companion ESP32 firmware repository is **not yet published**. In the meantime,
 
 ---
 
-## Usage 📱
+## Usage
 1. Launch the app
 2. Make sure Bluetooth is turned on
 3. Power up your ESP32 device

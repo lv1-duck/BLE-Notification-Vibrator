@@ -2,7 +2,6 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Transform your ESP32 into a discreet vibration notifier!  
 This Android app connects to your ESP32 device via Bluetooth Low Energy (BLE) and triggers a vibration when you receive specific notifications.
 
 ⚠️ **Note:** This project is a work in progress. Many features are still being developed, and things may break. Contributions, suggestions, or testing feedback are welcome!

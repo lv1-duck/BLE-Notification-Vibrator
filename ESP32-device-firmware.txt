@@ -1,0 +1,104 @@
+#include <BLEDevice.h>
+#include <BLEUtils.h>
+#include <BLEServer.h>
+
+#define MOTOR_PIN 13          // Changed to GPIO13 (adjust as needed)
+#define SERVICE_UUID        "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
+#define CHARACTERISTIC_UUID "beb5483e-36e1-4688-b7f5-ea07361b26a8"
+
+// BLE Objects
+BLEServer *pServer;
+BLEService *pService;
+BLECharacteristic *pCharacteristic;
+
+// Motor Control
+unsigned long motorOffTime = 0;
+bool motorState = false;
+
+class MyCallbacks : public BLECharacteristicCallbacks {
+  void onWrite(BLECharacteristic *pCharacteristic) {
+    String value = pCharacteristic->getValue().c_str();
+    value.trim();
+    
+    if (value == "vibrate") {
+      digitalWrite(MOTOR_PIN, HIGH);
+      motorOffTime = millis() + 1000; // 1-second vibration
+      motorState = true;
+      Serial.println("Motor activated via BLE");
+    }
+  }
+};
+
+class MyServerCallbacks : public BLEServerCallbacks {
+  void onConnect(BLEServer* pServer) {
+    Serial.println("Device connected");
+  }
+
+  void onDisconnect(BLEServer* pServer) {
+    BLEDevice::startAdvertising();
+    Serial.println("Device disconnected");
+  }
+};
+
+void setup() {
+  Serial.begin(115200);
+  delay(2000);  // Wait for serial initialization
+  
+  // Motor Control Setup
+  pinMode(MOTOR_PIN, OUTPUT);
+  digitalWrite(MOTOR_PIN, LOW);
+
+  // BLE Initialization
+  BLEDevice::init("ESP32-Motor");
+  
+  // BLE Security Configuration
+  BLESecurity *pSecurity = new BLESecurity();
+  pSecurity->setAuthenticationMode(ESP_LE_AUTH_NO_BOND);
+  pSecurity->setCapability(ESP_IO_CAP_NONE);
+
+  // Create BLE Server
+  pServer = BLEDevice::createServer();
+  pServer->setCallbacks(new MyServerCallbacks());
+  
+  // Create BLE Service
+  pService = pServer->createService(SERVICE_UUID);
+  
+  // Create BLE Characteristic
+  pCharacteristic = pService->createCharacteristic(
+    CHARACTERISTIC_UUID,
+    BLECharacteristic::PROPERTY_READ |
+    BLECharacteristic::PROPERTY_WRITE
+  );
+
+  pCharacteristic->setCallbacks(new MyCallbacks());
+  pService->start();
+
+  // Start Advertising
+  BLEAdvertising *pAdvertising = BLEDevice::getAdvertising();
+  pAdvertising->addServiceUUID(SERVICE_UUID);
+  pAdvertising->setMinInterval(0x50);  // 80ms
+  pAdvertising->setMaxInterval(0x80);  // 128ms
+  BLEDevice::startAdvertising();
+
+  Serial.println("System ready: BLE active on GPIO13");
+}
+
+void loop() {
+  // Motor timeout handling
+  if (motorState && millis() >= motorOffTime) {
+    digitalWrite(MOTOR_PIN, LOW);
+    motorState = false;
+    Serial.println("Motor stopped");
+  }
+
+  // Status monitoring
+  static unsigned long lastStatus = 0;
+  if (millis() - lastStatus > 2000) {
+    Serial.printf("[Status] Motor: %s | BLE Connections: %d\n",
+                  motorState ? "ON" : "OFF",
+                  pServer->getConnectedCount());
+    lastStatus = millis();
+  }
+  
+  delay(10);  // Minimal delay for stability
+}

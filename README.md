@@ -46,7 +46,7 @@ A companion ESP32 firmware repository is **not yet published**. Though a setup u
 ---
 
 ## Usage
-Note: **The app will not prompt you to enable notification access at this time (this feature will be implemented later), so you will need to manually enable it in the settings. ** ** ****
+Note: **The app will not prompt you to enable notification access at this time (this feature will be implemented later), so you will need to manually enable it in the settings.**
 1. Launch the app
 2. Make sure Bluetooth is turned on
 3. Power up your ESP32 device

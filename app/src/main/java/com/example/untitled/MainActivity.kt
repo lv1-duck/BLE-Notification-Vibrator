@@ -102,35 +102,26 @@ class MainActivity : AppCompatActivity() {
             val rssi = result.rssi
             val address = device.address
 
-            Log.d(TAG, "=== FOUND BLE DEVICE ===")
-            Log.d(TAG, "Name: ${deviceName ?: "NULL/UNKNOWN"}")
-            Log.d(TAG, "Address: $address")
-            Log.d(TAG, "RSSI: $rssi dBm")
-
             result.scanRecord?.serviceUuids?.let { uuids ->
                 Log.d(TAG, "Advertised Services: ${uuids.joinToString()}")
             }
 
             val isTargetDevice = when {
                 deviceName != null && deviceName.contains(ESP_DEVICE_NAME, ignoreCase = true) -> {
-                    Log.d(TAG, "✅ MATCHED by name: $deviceName")
                     true
                 }
                 deviceName != null && deviceName.contains("ESP", ignoreCase = true) -> {
-                    Log.d(TAG, "✅ POTENTIAL ESP device: $deviceName")
                     true
                 }
                 result.scanRecord?.serviceUuids?.any {
                     it.uuid.toString().equals(SERVICE_UUID.toString(), ignoreCase = true)
                 } == true -> {
-                    Log.d(TAG, "✅ MATCHED by service UUID")
                     true
                 }
                 else -> false
             }
 
             if (isTargetDevice) {
-                Log.d(TAG, "🎯 TARGET DEVICE FOUND! Attempting connection...")
                 stopScanning()
                 connectToDevice(device)
             }

@@ -27,7 +27,9 @@ class NotiListenerService : NotificationListenerService() {
         Log.d(TAG, "Notification from $packageName: $title - $notificationText")
 
         // Vibrate for WhatsApp/Messenger (customize these package names)
-        if (packageName == "com.whatsapp" || packageName == "com.facebook.orca" || packageName == "com.android.deskclock") {
+        if (packageName == "com.whatsapp"
+            || packageName == "com.facebook.orca"
+            || packageName == "com.android.deskclock") {
             sendVibrationCommandToBluetooth()
         }
     }

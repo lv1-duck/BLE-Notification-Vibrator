@@ -15,6 +15,7 @@ This Android app connects to your ESP32 device via Bluetooth Low Energy (BLE) an
 - Manual vibration trigger button for testing
 - Connection status monitoring
 - Basic automatic reconnection support
+- Responds to the clock app's notifications. This is a temporary patch before implementing the schedule setting feature on the app itself.
 - Android 8.0+ (API 26+) compatibility
 
 ---

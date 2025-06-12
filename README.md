@@ -30,11 +30,10 @@ Use this app at **your own risk**, and feel free to fork or submit PRs—but don
 ## Features (So Far)
 - BLE connection to ESP32 devices with BLE support (only ESP devices that match the hardcoded credentials in the main activity Kotlin file)
 - Auto-scanning and pairing based on predefined device name
-- Notification listener service *(currently limited to Facebook, Messenger, and WhatsApp)*
+- Notification listener service *(currently limited to Facebook, Messenger,CLock , and WhatsApp)*
 - Manual vibration trigger button for testing
 - Connection status monitoring
 - Basic automatic reconnection support
-- Responds to the clock app's notifications. This is a temporary patch before implementing the schedule setting feature on the app itself.
 - Android 8.0+ (API 26+) compatibility
 
 ---
@@ -56,9 +55,8 @@ A companion ESP32 firmware repository is **not yet published**. Though a setup u
 ### Android App Installation
 1. Download the latest APK from [Releases](https://github.com/lv1-duck/BLE-Notification-Vibrator/tree/main/releases)
 2. Enable **"Install from unknown sources"** in Android settings
-3. Go to Google Play Store > Tap the User Icon > Go to Play Protect> Click the settings > Pause app scanning with Play Protect. (hindi ako hecker promise hehehe)
-4. Install the APK
-5. Grant required permissions:
+3. Install the APK and press install anyway. If your device doesn't give a choice to install anyway and it stops you from installing, do the following: Go to Google Play Store > Tap the User Icon > Go to Play Protect> Click the settings > Pause app scanning with Play Protect.
+4. Grant required permissions:
    - Bluetooth
    - Location (required for BLE scanning)
    - Notification access

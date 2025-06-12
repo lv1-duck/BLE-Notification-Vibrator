@@ -73,7 +73,12 @@ class MainActivity : AppCompatActivity() {
         if (allGranted) {
             updateStatus("Permissions granted")
             initializeBluetoothAfterPermissions()
-        } else {
+        }
+        else if (permissions.filter { !it.value }.keys.contains("android.permission.ACCESS_FINE_LOCATION") &&
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            initializeBluetoothAfterPermissions()
+        }
+        else {
             val deniedPermissions = permissions.filter { !it.value }.keys
             updateStatus("Permissions denied: ${deniedPermissions.joinToString()}")
         }

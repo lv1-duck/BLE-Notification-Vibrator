@@ -4,7 +4,26 @@
 
 This Android app connects to your ESP32 device via Bluetooth Low Energy (BLE) and triggers a vibration when you receive specific notifications. This has potential for creative uses, like when I made it respond to clock notifications to use it like a scheduled vibration, sort of like a reminding or scheduling clip device.
 
-⚠️ **Note:** This project is a work in progress. Many features are still under development, and some features may not work. Contributions, suggestions, or testing feedback are welcome!
+## ⚠️ Experimental App Disclaimer
+
+This repository contains a fun, side‑project **Android app**—**not** a production‑ready application.  
+Expect rough edges, deprecated APIs, and breaking changes:
+
+- ❗️ Using deprecated `BluetoothGatt.writeCharacteristic(...)`.  
+- ❗️ Reliance on `LocalBroadcastManager`, which is deprecated.  
+- ❗️ Direct writes to the `BluetoothGattCharacteristic.value` field, also deprecated.
+
+### Known Issues & TODO
+
+- Migrate off `LocalBroadcastManager`  
+- Replace deprecated `writeCharacteristic(...)` calls  
+- Improve thread‑safety around UI updates  
+- Add retry limits for BLE error 133 loops  
+
+
+I have **no** plans to maintain compatibility with future Android API versions.  
+Use this app at **your own risk**, and feel free to fork or submit PRs—but don’t install it expecting stable, long‑term support!
+
 
 ---
 

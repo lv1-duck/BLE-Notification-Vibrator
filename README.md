@@ -9,9 +9,9 @@ This Android app connects to your ESP32 device via Bluetooth Low Energy (BLE) an
 This repository contains a fun, side‑project **Android app**—**not** a production‑ready application.  
 Expect rough edges, deprecated APIs, and breaking changes:
 
-- ❗️ Using deprecated `BluetoothGatt.writeCharacteristic(...)`.  
-- ❗️ Reliance on `LocalBroadcastManager`, which is deprecated.  
-- ❗️ Direct writes to the `BluetoothGattCharacteristic.value` field, also deprecated.
+- Using deprecated `BluetoothGatt.writeCharacteristic(...)`.  
+- Reliance on `LocalBroadcastManager`, which is deprecated.  
+- Direct writes to the `BluetoothGattCharacteristic.value` field, also deprecated.
 
 ### Known Issues & TODO
 
